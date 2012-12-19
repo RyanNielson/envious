@@ -27,7 +27,7 @@ After installation, run the following to create `config/environment_vars.yml`, a
 
 ## Usage
 
-Setting up configuration with Envious is easy. To begin, simple add some variables to your `config/environment_vars.yml` that you would like available in the `ENV` hash. Keep in mind that Envious uses `Rails.env` to allow configuration based on your current environment.
+Setting up configuration with Envious is easy. To begin, simply add some variables to your `config/environment_vars.yml` that you would like available in the `ENV` hash. Keep in mind that Envious uses `Rails.env` to allow configuration based on your current environment.
 ```yaml
 development: 
   USERNAME: "cat"
@@ -37,7 +37,9 @@ production:
 
 API_KEY: "ABCXYZ"
 ```
-In the above case, `ENV["API_KEY"]` will product `"ABCXYZ"` because any values not under an environment will be available in all environments. In development `ENV["USERNAME"]`  will be `"cat", and it will be `"dog"` in production.
+In the above case, `ENV["API_KEY"]` will produce `"ABCXYZ"` because any values not under an environment will be available in all environments. In development `ENV["USERNAME"]`  will be `"cat", and it will be `"dog"` in production.
+
+Since Envious configuration is loaded when your Rails app loads, the `ENV` hash is available anywhere in your application where you may need to call upon your configuration.
 
 
 ## Questions or Problems?

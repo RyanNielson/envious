@@ -1,6 +1,4 @@
 require "envious/railtie"
-require "envious/version"
-
 
 module Envious
   extend self
