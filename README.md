@@ -21,18 +21,25 @@ Or install it yourself as:
 
     $ gem install envious
 
-After installation, run the following to create the configuration file, and add it to your .gitignore.
+After installation, run the following to create `config/environment_vars.yml`, and add it to your `.gitignore`.
 
     $ rails generate envious:setup
 
 ## Usage
 
-TODO: Write usage instructions here
+Setting up configuration with Envious is easy. To begin, simple add some variables to your `config/environment_vars.yml` that you would like available in the `ENV` hash. Keep in mind that Envious uses `Rails.env` to allow configuration based on your current environment.
+```yaml
+development: 
+  USERNAME: "cat"
 
-## Contributing
+production:
+  USERNAME: "dog"
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+API_KEY: "ABCXYZ"
+```
+In the above case, `ENV["API_KEY"]` will product `"ABCXYZ"` because any values not under an environment will be available in all environments. In development `ENV["USERNAME"]`  will be `"cat", and it will be `"dog"` in production.
+
+
+## Questions or Problems?
+
+If you have any questions or issues with Envious, please add an [issue on GitHub](https://github.com/RyanNielson/envious/issues), or send a pull request.
