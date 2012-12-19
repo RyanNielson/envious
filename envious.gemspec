@@ -7,6 +7,10 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Easy Ruby on Rails application and environment configuration using YAML and ENV.}
   gem.homepage      = "http://github.com/ryannielson/envious"
 
+  gem.add_dependency "rails", "~> 3.0"
+
+  gem.add_development_dependency "rspec", "~> 2.0"
+  
   gem.files         = `git ls-files`.split($/)
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]

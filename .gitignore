@@ -17,3 +17,5 @@ test/version_tmp
 tmp
 .rbenv-version
 .DS_STORE
+vendor/bundle
+.rspec
