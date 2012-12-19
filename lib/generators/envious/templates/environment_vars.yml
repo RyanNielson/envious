@@ -1,0 +1,15 @@
+# Add environmental variables to this file in yaml format:
+#
+# development: 
+#   USERNAME: "cat"
+#   PASSWORD: "secret"
+#
+# production:
+#   USERNAME: "dog"
+#   PASSWORD: "stillsecret"
+#
+# API_KEY: "ABCXYZ"
+# SECRET: "HELLO"
+#
+# Envious supports Rails environments so anything under production will only be loaded into the environment in production, and anything under development will only be loaded in the development environment.
+# Anything outside of an environment will be loaded no matter which Rails environment you're in.
