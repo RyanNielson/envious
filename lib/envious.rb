@@ -3,8 +3,7 @@ require "envious/railtie"
 module Envious
   extend self
 
-  def load_env(specific_environment = nil)
-    environment = (specific_environment || self.environment).to_s
+  def load_env()
     add_to_environment(default_vars.merge(environment_vars))
   end
 
@@ -17,7 +16,7 @@ module Envious
   end
 
   def environment
-    Rails.env
+    Rails.env.to_s
   end
 
   def default_vars()
