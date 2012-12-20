@@ -25,7 +25,7 @@ module Envious
   end
 
   def environment_vars
-    yaml.fetch(environment)
+    yaml.fetch(environment, {})
   end
 
   def add_to_environment(hash)
