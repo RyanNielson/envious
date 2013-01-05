@@ -1,7 +1,12 @@
 require "envious/railtie"
-
+require "pp"
 module Envious
   extend self
+
+  def vars_for_heroku()
+    env_vars = default_vars.merge(environment_vars)
+    env_vars = env_vars.map { |k, v| "#{k}=#{v}"}.join(' ')
+  end
 
   def load_env()
     add_to_environment(default_vars.merge(environment_vars))
@@ -28,6 +33,6 @@ module Envious
   end
 
   def add_to_environment(hash)
-    hash.each { |key, value| ENV[key.to_s] = value.to_s }
+    hash.each { |key, value| ENV[key.to_s] = value.to_s unless ENV.key?(key.to_s) }
   end
 end

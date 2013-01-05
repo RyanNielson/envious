@@ -42,6 +42,16 @@ In the above case, `ENV["API_KEY"]` will produce `"ABCXYZ"` because any values n
 Since Envious configuration is loaded when your Rails app loads, the `ENV` hash is available anywhere in your application where you may need to call upon your configuration.
 
 
+## Using with Heroku
+Envious allows easy transfer of local environment variables to heroku using a simple rake task. To copy local settings to Heroku use:
+
+    $ rake envious:heroku:push
+
+The environment used is dependant on Heroku's `RAILS_ENV` configuration setting. If it is blank, Envious assumes it is using `production`. Changing this setting on Heroku is simple. To change Heroku's `RAILS_ENV` to development, use the following command:
+
+    $ heroku config:add RAILS_ENV=development
+
+
 ## Questions or Problems?
 
 If you have any questions or issues with Envious, please add an [issue on GitHub](https://github.com/RyanNielson/envious/issues), or send a pull request.
