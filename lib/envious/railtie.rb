@@ -6,6 +6,7 @@ module Envious
 
     rake_tasks do 
       load 'tasks/heroku.rake'
+      load 'tasks/cloud66.rake'
     end
   end 
 end

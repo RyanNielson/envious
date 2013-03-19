@@ -51,6 +51,19 @@ The environment used is dependant on Heroku's `RAILS_ENV` configuration setting.
 
     $ heroku config:add RAILS_ENV=development
 
+## Using with Cloud66
+Envious makes it easy to export environment variables to a file for used on Cloud66 using a rake task. To copy local settings to a file formatted for used in the Cloud66 stack environment variable window use:
+
+    $ rake envious:cloud66:export > vars.txt
+
+This will export your settings in `config/environment_vars.yml` to a file called `vars.txt` in your current directory. This is formatted and ready to be uploaded to Cloud66. By default, this will export your production environment variables. 
+
+To export environment variables for other environments, you can use an optional argument to the rake task:
+
+    $ rake envious:cloud66:export[development] > vars.txt
+
+The command above will export all your development environment variables in `config/environment_vars.yml` to a file called `vars.txt`. `development` can be replaced with any other environments to export those values.
+
 
 ## Questions or Problems?
 

@@ -3,9 +3,14 @@ require "pp"
 module Envious
   extend self
 
-  def vars_for_heroku()
+  def vars_for_heroku
     env_vars = default_vars.merge(environment_vars)
     env_vars = env_vars.map { |k, v| "#{k}=#{v}"}.join(' ')
+  end
+
+  def vars_for_cloud66
+    env_vars = default_vars.merge(environment_vars)
+    env_vars = env_vars.map { |k, v| "#{k}=#{v}"}.join("\n")
   end
 
   def load_env()
